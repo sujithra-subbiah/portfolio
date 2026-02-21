@@ -65,9 +65,10 @@ body {
 main {
     position: relative;
     margin-top: 80px;
-    min-height: 100dvh;
+    height: calc(100vh - 80px); /* FIXED */
     overflow: hidden;
 }
+
 /* ========================= */
 /* SECTION SLIDE SYSTEM */
 /* ========================= */
@@ -77,7 +78,7 @@ main {
     top: 0;
     left: 100%;
     width: 100%;
-    min-height: 100%;
+    height: 100%; /* FIXED */
     padding: 60px 20px;
 
     display: flex;
@@ -91,6 +92,7 @@ main {
     opacity: 0;
     transition: left 0.6s ease, opacity 0.6s ease;
 }
+
 .section.active {
     left: 0;
     opacity: 1;
@@ -308,6 +310,10 @@ main {
         padding: 15px 20px;
     }
 
+    main {
+        height: calc(100vh - 80px);
+    }
+
     .home-container {
         grid-template-columns: 1fr;
         gap: 30px;
@@ -328,7 +334,7 @@ main {
 
     .section {
         padding: 100px 20px 40px;
-        justify-content: flex-start; /* KEY FIX */
+        justify-content: flex-start;
     }
 
     .project-card {
