@@ -25,7 +25,7 @@ body {
 
 .navbar {
     background: #020617;
-    padding: 18px 60px;
+    padding: 18px 40px;   /* reduced from 60px */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,6 +35,49 @@ body {
     z-index: 1000;
 }
 
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #38bdf8;
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* ========================= */
+/* MOBILE NAVBAR */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 10px;
+    }
+}
 .logo {
     font-size: 26px;
     font-weight: bold;
