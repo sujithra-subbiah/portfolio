@@ -17,7 +17,6 @@ body {
     background-color: #0f172a;
     color: #e5e7eb;
     overflow-x: hidden;
-    line-height: 1.6;
 }
 
 /* ========================= */
@@ -26,7 +25,7 @@ body {
 
 .navbar {
     background: #020617;
-    padding: 18px 40px;
+    padding: 18px 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,7 +44,7 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 .nav-links a {
@@ -60,43 +59,48 @@ body {
 }
 
 /* ========================= */
-/* MOBILE NAVBAR */
-/* ========================= */
-
-@media (max-width: 768px) {
-
-    .navbar {
-        flex-direction: column;
-        padding: 15px 20px;
-        text-align: center;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 10px;
-    }
-}
-
-/* ========================= */
-/* MAIN */
+/* MAIN CONTAINER */
 /* ========================= */
 
 main {
-    margin-top: 100px;   /* space for fixed navbar */
+    position: relative;
+    margin-top: 80px;
+    height: calc(100dvh - 80px); /* FIXED for mobile */
+    overflow: hidden;
 }
 
 /* ========================= */
-/* SECTION */
+/* SECTION SLIDE SYSTEM */
 /* ========================= */
 
 .section {
+    position: absolute;
+    top: 0;
+    left: 100%;
     width: 100%;
-    padding: 100px 20px 60px;
+    height: 100%;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
+
+    overflow-y: auto; /* IMPORTANT for mobile scroll */
+    -webkit-overflow-scrolling: touch;
+
+    opacity: 0;
+    transition: left 0.6s ease, opacity 0.6s ease;
+}
+
+.section.active {
+    left: 0;
+    opacity: 1;
+}
+
+.section.exit-left {
+    left: -100%;
+    opacity: 0;
 }
 
 /* ========================= */
@@ -104,7 +108,7 @@ main {
 /* ========================= */
 
 .section h2 {
-    font-size: 36px;
+    font-size: 38px;
     margin-bottom: 20px;
     color: #38bdf8;
 }
@@ -119,8 +123,9 @@ main {
 
 .home-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
     align-items: center;
+    justify-items: center;
     gap: 60px;
     width: 90%;
     max-width: 1200px;
@@ -136,7 +141,7 @@ main {
 }
 
 .hero-content p {
-    font-size: 22px;
+    font-size: 24px;
     margin: 20px 0 30px;
     color: #cbd5f5;
 }
@@ -159,7 +164,7 @@ main {
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.07);
     box-shadow: 0 0 20px rgba(56,189,248,0.7);
 }
 
@@ -175,15 +180,21 @@ main {
 }
 
 /* ========================= */
-/* SECTION IMAGE */
+/* SECTION IMAGES */
 /* ========================= */
 
 .section-img {
-    width: 100%;
+    width: 40%;
     max-width: 500px;
+    min-width: 250px;
     margin: 25px 0;
     border-radius: 20px;
     box-shadow: 0 0 35px rgba(56, 189, 248, 0.4);
+    transition: transform 0.4s ease;
+}
+
+.section-img:hover {
+    transform: scale(1.05);
 }
 
 /* ========================= */
@@ -202,8 +213,7 @@ main {
     background: #1e293b;
     padding: 20px;
     border-radius: 20px;
-    width: 100%;
-    max-width: 320px;
+    width: 320px;
     transition: 0.3s ease;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -226,10 +236,16 @@ main {
     margin-bottom: 10px;
 }
 
-.project-card p,
-.project-card ul {
+.project-card p {
     font-size: 14px;
     margin-bottom: 8px;
+}
+
+.project-card ul {
+    text-align: left;
+    padding-left: 18px;
+    margin: 10px 0;
+    font-size: 14px;
 }
 
 .project-buttons {
@@ -285,19 +301,28 @@ main {
 }
 
 /* ========================= */
-/* MOBILE OPTIMIZATION */
+/* MOBILE RESPONSIVE */
 /* ========================= */
 
 @media (max-width: 768px) {
 
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    main {
+        height: calc(100dvh - 70px);
+        margin-top: 70px;
+    }
+
     .home-container {
         grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+        gap: 30px;
+        width: 95%;
     }
 
     .hero-content h1 {
-        font-size: 36px;
+        font-size: 32px;
     }
 
     .hero-content p {
@@ -305,10 +330,19 @@ main {
     }
 
     .section h2 {
-        font-size: 28px;
+        font-size: 26px;
+    }
+
+    .section-img {
+        width: 85%;
+        min-width: unset;
+    }
+
+    .home-video video {
+        max-width: 100%;
     }
 
     .project-card {
-        max-width: 95%;
+        width: 95%;
     }
 }
