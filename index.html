@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sujithra | Web Developer</title>
-
-    <!-- Favicon -->
     <link rel="icon" href="images/favicon.png">
-
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
 <body>
+<div id="demoPopup" class="popup-overlay">
+    <div class="popup-box demo-box">
+        <span class="close-popup" onclick="closeDemo()">&times;</span>
+        
+        <div id="demoContent" style="display: none;">
+            <iframe id="demoFrame" src="" frameborder="0" width="100%" height="500px"></iframe>
+        </div>
 
-    <!-- NAVBAR -->
+        <div id="noDemoContent" style="display: none;">
+            <i class="fas fa-exclamation-circle" style="font-size: 40px; color: #38bdf8; margin-bottom: 15px;"></i>
+            <h3>Demo Not Available</h3>
+            <p>This project's live demo is currently being updated. Check the source code on GitHub!</p>
+            <button class="btn" onclick="closeDemo()">Got it!</button>
+        </div>
+    </div>
+</div>
+    </div>
+
     <nav class="navbar">
-        <h2 class="logo">Sujithra</h2>
+        <h2 class="logo">S.Sujithra</h2>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -23,191 +37,151 @@
             <li><a href="#projects">Projects</a></li>
             <li><a href="#videos">Videos</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li class="theme-switch">
+        <i id="theme-icon" class="fas fa-moon" style="cursor: pointer; font-size: 1.2rem; color: #38bdf8; margin-left: 10px;"></i>
+            </li>
         </ul>
     </nav>
 
     <main>
-
-        <!-- HOME -->
         <section id="home" class="section active">
             <div class="home-container">
-
                 <div class="hero-content">
                     <h1>Hello, I'm <span>Sujithra</span></h1>
-                    <p>Web Developer</p>
-
-                    <button class="btn" id="hireBtn">Hire Me</button>
-
-                    <a href="resume.pdf" class="btn" target="_blank">
-                        View Resume
-                    </a>
+                    <p>Python Full Stack Developer</p>
+                    <div class="hero-btns">
+                        <button class="btn btn-primary" id="hireBtn">Hire Me</button>
+                        <a href="resume.pdf" class="btn btn-outline" target="_blank">View Resume</a>
+                    </div>
                 </div>
-
-                <div class="home-video">
-                    <video autoplay muted loop playsinline>
-                        <source src="videos/intro.mp4" type="video/mp4">
-                    </video>
+               <video id="heroVideo" autoplay muted loop playsinline controls>
+    <source src="videos/intro.mp4" type="video/mp4">
+</video>
+                    </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ABOUT -->
         <section id="about" class="section">
             <h2>About Me</h2>
-            <img src="images/about.webp" class="section-img">
+            <img src="images/about.webp" class="section-img" alt="About Me">
             <p>
-                I am a passionate Web Developer skilled in building
-                responsive and dynamic websites using HTML, CSS,
-                JavaScript, Django and Flask. I love creating clean,
-                user-friendly and professional web applications.
+                I am a passionate Web Developer skilled in building responsive and dynamic websites using Python, Django, and Flask. 
+                I focus on creating clean, professional, and user-friendly applications.
             </p>
         </section>
 
-        <!-- SKILLS -->
         <section id="skills" class="section">
-            <h2>Skills</h2>
-            <img src="images/skills.webp" class="section-img">
-            <p>HTML, CSS, JavaScript, Python, Django, Flask, Bootstrap, SQLite</p>
+            <h2>Technical Skills</h2>
+            <img src="images/skills.webp" class="section-img" alt="Skills">
+            <p>HTML5, CSS3, JavaScript, Python, Django, Flask, Bootstrap, SQLite, Pandas, Scapy</p>
         </section>
 
-        <!-- PROJECTS -->
         <section id="projects" class="section">
-            <h2>Projects</h2>
+    <h2>My Projects</h2>
+    <div class="project-container">
+        <div class="project-card">
+            <img src="images/projects.jpg" alt="Online Book Stall">
+            <h3>Online Book Stall</h3>
+            <p><strong>Django Full Stack</strong></p>
+            <p>Browse books and place orders dynamically with database integration.</p>
+            <div class="project-buttons">
+                <a href="https://github.com/sujithra-subbiah/Online_Book_Stall" class="btn btn-outline" target="_blank">GitHub</a>
+                <button class="btn btn-primary" onclick="openDemo('#')">Live Demo</button>
+            </div>
+        </div>
 
-            <div class="project-container">
+        <div class="project-card">
+            <img src="images/projects.jpg" alt="Telecom Automation">
+            <h3>Telecom Automation</h3>
+            <p><strong>Flask Automation</strong></p>
+            <p>Site health monitoring and automated Excel report generation.</p>
+            <div class="project-buttons">
+                <a href="https://github.com/sujithra-subbiah/Telecom-Automation-Portal" class="btn btn-outline" target="_blank">GitHub</a>
+                <button class="btn btn-primary" onclick="openDemo('#')">Live Demo</button>
+            </div>
+        </div>
 
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="images/projects.jpg" alt="Online Book Stall">
-                    <h3>Online Book Stall</h3>
-                    <p><strong>Python Full Stack Web Application (Django)</strong></p>
-                    <p>
-                        Developed a full-stack e-commerce web application
-                        that allows users to browse books, stationery items,
-                        view offers and place orders dynamically.
-                    </p>
+        <div class="project-card">
+            <img src="images/projects.jpg" alt="Net Analyzer">
+            <h3>Net Analyzer</h3>
+            <p><strong>Python Network Tool</strong></p>
+            <p>Real-time network packet analysis and traffic visualization.</p>
+            <div class="project-buttons">
+                <a href="https://github.com/sujithra-subbiah/NetAnalyzer-Web" class="btn btn-outline" target="_blank">GitHub</a>
+                <button class="btn btn-primary" onclick="openDemo('#')">Live Demo</button>
+            </div>
+        </div>
 
-                    <ul>
-                        <li>Book & Stationery Management</li>
-                        <li>Offers & Order Processing</li>
-                        <li>Dynamic Templates & Database Integration</li>
-                    </ul>
+        <div class="project-card">
+            <img src="images/projects.jpg" alt="DriveVerse 3D">
+            <h3>DriveVerse 3D</h3>
+            <p><strong>Three.js / JavaScript</strong></p>
+            <p>Minimalist 3D racing game with physics-based movement.</p>
+            <div class="project-buttons">
+                <a href="https://github.com/sujithra-subbiah/DriveVerse" class="btn btn-outline" target="_blank">GitHub</a>
+                <button class="btn btn-primary" onclick="openDemo('https://driveverse-3d.netlify.app/')">Live Demo</button>
+            </div>
+        </div>
+    </div>
+</section>
 
-                    <p><strong>Tech:</strong> Python, Django, HTML, CSS, Bootstrap, SQLite</p>
-
-                    <div class="project-buttons">
-                        <a href="#" class="btn">GitHub</a>
-                        <a href="#" class="btn">Live Demo</a>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="images/projects.jpg" alt="Telecom Automation Portal">
-                    <h3>Telecom Operations Automation Portal</h3>
-                    <p><strong>Web-Based Automation System (Flask)</strong></p>
-                    <p>
-                        Developed a telecom automation portal to monitor
-                        site performance, ensure EMF compliance and automate reports.
-                    </p>
-
-                    <ul>
-                        <li>Site Health Monitoring</li>
-                        <li>EMF Compliance Checker</li>
-                        <li>Excel Report Automation</li>
-                    </ul>
-
-                    <p><strong>Tech:</strong> Python, Flask, HTML, CSS, Bootstrap, Excel Automation</p>
-
-                    <div class="project-buttons">
-                        <a href="#" class="btn">GitHub</a>
-                        <a href="#" class="btn">Live Demo</a>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="images/projects.jpg" alt="Net Analyzer">
-                    <h3>Net Analyzer</h3>
-                    <p><strong>Network Packet Analysis Tool</strong></p>
-                    <p>
-                        Built a real-time network packet analysis tool
-                        to capture, analyze and visualize traffic behavior.
-                    </p>
-
-                    <ul>
-                        <li>Live Packet Capture</li>
-                        <li>Traffic Analysis & Logging</li>
-                        <li>Data Visualization</li>
-                    </ul>
-
-                    <p><strong>Tech:</strong> Python, Scapy, Pandas, Matplotlib, CSV, Excel, Npcap</p>
-
-                    <div class="project-buttons">
-                        <a href="#" class="btn">GitHub</a>
-                        <a href="#" class="btn">Live Demo</a>
-                    </div>
-                </div>
-
+        <section id="videos" class="section">
+            <h2>Intro Video</h2>
+            <div class="video-wrapper">
+                <video id="introVideo" controls muted loop playsinline>
+                    <source src="videos/intro.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
         </section>
 
-        <!-- VIDEOS -->
-        <section id="videos" class="section">
-            <h2>Intro Video</h2>
-            <video controls width="400">
-                <source src="videos/intro.mp4" type="video/mp4">
-            </video>
-        </section>
-
-        <!-- CONTACT -->
         <section id="contact" class="section">
             <h2>Contact Me</h2>
-            <img src="images/contact.jpg" class="section-img">
-            <p>Email: sujithrasubbiah.1230@gmail.com</p>
+            <img src="images/contact.jpg" class="section-img" alt="Contact">
+            <p>Email: <a href="mailto:sujithrasubbiah.1230@gmail.com" style="color:#38bdf8;">sujithrasubbiah.1230@gmail.com</a></p>
         </section>
-
     </main>
 
-    <!-- HIRE ME POPUP -->
-    <div id="hirePopup" class="popup">
-        <div class="popup-content">
-            <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h2>Hire Me</h2>
-
-            <form id="hireForm"
-                  action="https://formsubmit.co/ajax/sujithrasubbiah.1230@gmail.com"
-                  method="POST">
-
-                <input type="hidden" name="_subject" value="New Hire Request from Portfolio!">
-                <input type="hidden" name="_captcha" value="false">
-
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <input type="text" name="company" placeholder="Company Name" required>
-                <textarea name="message" placeholder="Job Details / Message" required></textarea>
-
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+<div id="hirePopup" class="popup-overlay">
+    <div class="popup-box">
+        <span class="close-popup" onclick="closePopup()">&times;</span>
+        <h2>Hire Me</h2>
+        <form id="hireForm" action="https://formsubmit.co/ajax/sujithrasubbiah.1230@gmail.com" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="text" name="company" placeholder="Company Name" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Submit Now</button>
+        </form>
     </div>
+</div>
 
-    <!-- THANK YOU POPUP -->
-    <div id="thankYouPopup" class="popup">
-        <div class="popup-content">
+    <div id="thankYouPopup" class="popup-overlay">
+        <div class="popup-box">
             <h2>✅ Thank You!</h2>
-            <p>Your message has been sent successfully.<br>I will contact you soon.</p>
-            <button onclick="closeThankYou()">Close</button>
+            <p>I will contact you soon.</p>
+            <button class="btn btn-primary" onclick="closeThankYou()">Close</button>
         </div>
     </div>
-
-    <!-- FOOTER -->
-    <footer style="text-align:center; padding:20px; background:#020617; color:#94a3b8;">
+    <div class="social-sidebar">
+<a href="https://github.com/Sujithra-Subbiah" target="_blank" class="social-icon">
+    <i class="fab fa-github"></i>
+</a>
+<a href="https://linkedin.com/in/sujithra-subbiah" target="_blank" class="social-icon">
+    <i class="fab fa-linkedin-in"></i>
+</a>
+<a href="mailto:sujithrasubbiah.dev@gmail.com" class="social-icon">
+    <i class="fas fa-envelope"></i>
+</a>
+</div>
+<button id="backToTop" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+    <footer class="footer">
         © 2026 Sujithra | Web Developer
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
