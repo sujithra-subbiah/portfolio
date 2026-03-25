@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ===============================
     // 5. TYPING EFFECT
     // ===============================
-    const careers = ["Python Full Stack Developer", "Web Developer", "Backend Specialist"];
+    const careers = ["Python Full Stack Developer", "Web Developer"];
     let charIndex = 0;
     let careerIndex = 0;
 
