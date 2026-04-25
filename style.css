@@ -599,3 +599,32 @@ footer { padding: 40px 0; text-align: center; background: var(--bg-dark); }
     font-weight: bold;
     letter-spacing: 1px;
 }
+/* Existing wrapper-la position relative irukkanum */
+.hero-video-wrapper {
+    position: relative; /* Ithu thaan button-ai ulla vaika help pannum */
+}
+
+.video-mute-btn {
+    position: absolute;
+    bottom: 25px; /* Video-ku bottom-la irukka */
+    left: 50%;
+    transform: translateX(-50%); /* Exact center alignment */
+    background: rgba(0, 0, 0, 0.4); /* Subtle dark background */
+    backdrop-filter: blur(8px);    /* Glassmorphism effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.video-mute-btn:hover {
+    background: rgba(56, 189, 248, 0.4); /* Hover panna light blue */
+    transform: translateX(-50%) scale(1.1);
+}

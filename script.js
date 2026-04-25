@@ -211,3 +211,18 @@ if(contactForm) {
         .catch(error => console.log("Error:", error));
     });
 }
+const heroVideo = document.getElementById('heroVideo');
+const muteBtn = document.getElementById('muteBtn');
+const muteIcon = document.getElementById('muteIcon');
+
+if (muteBtn && heroVideo) {
+    muteBtn.addEventListener('click', () => {
+        if (heroVideo.muted) {
+            heroVideo.muted = false;
+            muteIcon.innerText = "🔊"; // Sound On
+        } else {
+            heroVideo.muted = true;
+            muteIcon.innerText = "🔇"; // Muted
+        }
+    });
+}
